@@ -1,3 +1,5 @@
+## 本项目于2026-5-12清空历史，fork项目的请重新fork.
+
 > **手机端[Nekobox](https://github.com/MatsuriDayo/NekoBoxForAndroid)更新项目原地址。**  
 > **手机端[Nekobox插件](https://github.com/MatsuriDayo/plugins/)地址。**
 
