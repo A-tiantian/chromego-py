@@ -1,0 +1,55 @@
+name: 更新订阅地址 sources.txt
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_description:
+        description: '运行说明（可选）'
+        required: false
+        default: '手动更新四个 sources.txt 文件'
+        type: string
+
+jobs:
+  update-sources:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 运行 update_sources.py 生成 4 个文件
+        run: |
+          python update_sources.py
+
+      - name: 配置 Git 用户
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: 拉取最新代码并 rebase
+        run: |
+          git pull --rebase --autostash origin main || echo "Rebase done"
+
+      - name: 提交并推送 4 个文件
+        run: |
+          git add urls/EdgeGo_sources.txt urls/ChromeGo_sources.txt urls/FirefoxFQ_sources.txt urls/sources.txt
+          
+          if git diff --cached --quiet; then
+            echo "✅ 四个文件均无变化，无需提交"
+          else
+            git commit -m "chore: 更新四个 sources.txt 文件 (手动触发)"
+            git push origin main
+            echo "✅ 已提交并推送 4 个文件"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 执行结果
+        run: echo "🎉 Workflow 执行完成！"

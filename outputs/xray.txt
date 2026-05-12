@@ -1,0 +1,547 @@
+# =======================
+# 分组标题: # Xray
+# 内核类型: xray
+# 由 merge_sources.py 自动生成
+# =======================
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": {
+      "dns.google":                        ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"],
+      "dns.alidns.com":                    ["223.5.5.5","223.6.6.6","2400:3200::1","2400:3200:baba::1"],
+      "one.one.one.one":                   ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "1dot1dot1dot1.cloudflare-dns.com":  ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "cloudflare-dns.com":                ["104.16.249.249","104.16.248.249","2606:4700::6810:f8f9","2606:4700::6810:f9f9"],
+      "dns.cloudflare.com":                ["104.16.132.229","104.16.133.229","2606:4700::6810:84e5","2606:4700::6810:85e5"],
+      "dot.pub":                           ["1.12.12.12","120.53.53.53"],
+      "doh.pub":                           ["1.12.12.12","120.53.53.53"],
+      "dns.quad9.net":                     ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"],
+      "dns.umbrella.com":                  ["208.67.220.220","208.67.222.222","2620:119:35::35","2620:119:53::53"],
+      "engage.cloudflareclient.com":       ["162.159.192.1","2606:4700:d0::a29f:c001"]
+    },
+    "servers": [
+      { "address": "https://dns.alidns.com/dns-query", "domains": ["geosite:private"], "skipFallback": true },
+      { "address": "223.5.5.5", "domains": ["full:dns.alidns.com","full:cloudflare-dns.com"], "skipFallback": true },
+      "https://cloudflare-dns.com/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true }
+    },
+    {
+      "tag": "http",
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth" }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "157.254.223.137",
+          "port": 33323,
+          "users": [{ "id": "0f48492a-adf1-49e6-b73d-dc2888fa68ac", "encryption": "mlkem768x25519plus.native.0rtt.3jNtopeCGaI72AdTrIkExEBKSiKB_LO1BWSVNfdx8EoehKA0TFJFkuIq8uqCb-B2mLFK0aUonhWVtzY7E0Qb3uC0J9oEkFy4fKA0UMNAH5cl4Difj7FrHouiX9yUBrCGy0lhvxtRusufW2VydxFgl9yUsjlPODUm57LMCqOqqGFLsKRqlfLKDNud33gkCCyH76y6yGbIFHGiasZO7fdVkxzDN9BGtxRwa1ueZ4vB7sASYztcOhAl1WlveGQLM_qx7DhdHjGIZBWk20dDCBiCoVVzj6cvP8xyuOQYUoANFMBokAK2w8Y4WChhX0J-3eV_njLB7WQfsVCRfMg2iaSMrStzMgE86vyH_aJwqhFLAtmhKOm8pWMoSCozMEyNoTBPwsoenGBHcIxRsBoReklxyVh5z6Fe4xGJCyAfchle7sSUaMwn6iZw7_JM7VRtfXJkgJpluSKkNRcrhaRD0MgWxkGMa9VXeKIRuVPOtuB3NyXB_MxpgQBRnSWnFEkZliy5-IFeSQhSGwhLxJZT2pdVCSchqFfA1xhGFJOQ_aM5wAMym7mH6lKb76ZpInhfbfOdeYUrFJENJhOxJCu-BoxL5bGIb-Ri6iq3T8yRz1dT6TWJMgRgj6ICP0Z6VjFSNqCFijYkxZqFDoxuOXYJR0BGpoXM2uIOYGlxkRdP1mIti3t61zg7BFyFWrgNDeMncncu9Ii-DyEtVFKVkXRSubEvA7ag4zez_MJFisAN-8ljsjms2Uxa0pEqYbtr1Ngl3uezI3nIy2QD4jAfHbyAwMsMWUqoGjVF4hCqOjg64dONuorE5SQTvgKwakwwOOWLfUGBHFNHR0Ej7shac4ybO4yJoPCGhQxeaFuBVYI8MzMYvWaKYBU1whMXirCRX5LGyLVaNfaWJCgFlBYrt2tBFygYM8aj_ugNmWkqC_HO9HPH3gZVr4XE8FY3i-le4tmFVHe2mMYQlUw0_VrKXmGCnmzP7NaP8iwjlmVc9Da6zhOO0BJMjXNYZlROSBTPgDcHs0nMwTy4tgrEZHKnwCBFz0QXYubCyRC6PToCCUkplFGDRXx8JXdnG2I_L9i1CbE83do9pAhnZxvBJxEmejlYqfws4lw48XonUHOB7SQSbuWHdWafa0vJegJdnBtjfeO3QfWiEYubx1qn89W0hFuzKWhs-dEU2OxW1uUzu-mFEuW8Ioy48Khb0wszq-CzNVFLq7SgQwyEmESc9gBt6pSvzuuNG0afpwMkqhy0V5emybO3o5xLOgKucpzHgqOFzMYEQCKF4TgLcvyqEyyqJquctIJxpUWmwKwazQleprCqGoVhs6ySHNqwRjwrD9IsUSpzyahZ8glQE3wp-OsVXou_AEM4Z8ZAyCdjMBQBXZR11BO5YBnOa0WnUHWCIIBeT5aB2LZTzhZhZyFPVQMajWwVpWAj6Hc0f-sSqYBghcSSUqsqJ5yX2eF7RggVTaBF61AklcJpSXUe36Q2SeijoTHDZmfLfFdgsEcRdisoijbIYOoGFJenLmCGa4GpH5IxX8vBggVQO0-mwfCQOc6VIBsVwwOUjBPWK-_4KJGt6s7aWM0ycs4" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": { "serverName": "www.microsoft.com", "fingerprint": "chrome", "publicKey": "k0A9n6nHl0ZiOetEFaWw2MQF-MtvzebHRea1DU2oy0I", "shortId": "8855461f" },
+        "xhttpSettings": { "path": "/N9BsMUaP", "mode": "auto" }
+      }
+    }
+  ,
+  { "tag": "direct", "protocol": "freedom" },
+  { "tag": "block",  "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "outboundTag": "block",  "ip":     ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "outboundTag": "proxy",  "port":   "0-65535" }
+    ]
+  }
+}
+
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": {
+      "dns.google":                        ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"],
+      "dns.alidns.com":                    ["223.5.5.5","223.6.6.6","2400:3200::1","2400:3200:baba::1"],
+      "one.one.one.one":                   ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "1dot1dot1dot1.cloudflare-dns.com":  ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "cloudflare-dns.com":                ["104.16.249.249","104.16.248.249","2606:4700::6810:f8f9","2606:4700::6810:f9f9"],
+      "dns.cloudflare.com":                ["104.16.132.229","104.16.133.229","2606:4700::6810:84e5","2606:4700::6810:85e5"],
+      "dot.pub":                           ["1.12.12.12","120.53.53.53"],
+      "doh.pub":                           ["1.12.12.12","120.53.53.53"],
+      "dns.quad9.net":                     ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"],
+      "dns.umbrella.com":                  ["208.67.220.220","208.67.222.222","2620:119:35::35","2620:119:53::53"],
+      "engage.cloudflareclient.com":       ["162.159.192.1","2606:4700:d0::a29f:c001"]
+    },
+    "servers": [
+      { "address": "https://dns.alidns.com/dns-query", "domains": ["geosite:private"], "skipFallback": true },
+      { "address": "223.5.5.5", "domains": ["full:dns.alidns.com","full:cloudflare-dns.com"], "skipFallback": true },
+      "https://cloudflare-dns.com/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true }
+    },
+    {
+      "tag": "http",
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth" }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "157.254.223.137",
+          "port": 33323,
+          "users": [{ "id": "0f48492a-adf1-49e6-b73d-dc2888fa68ac", "encryption": "mlkem768x25519plus.native.0rtt.3jNtopeCGaI72AdTrIkExEBKSiKB_LO1BWSVNfdx8EoehKA0TFJFkuIq8uqCb-B2mLFK0aUonhWVtzY7E0Qb3uC0J9oEkFy4fKA0UMNAH5cl4Difj7FrHouiX9yUBrCGy0lhvxtRusufW2VydxFgl9yUsjlPODUm57LMCqOqqGFLsKRqlfLKDNud33gkCCyH76y6yGbIFHGiasZO7fdVkxzDN9BGtxRwa1ueZ4vB7sASYztcOhAl1WlveGQLM_qx7DhdHjGIZBWk20dDCBiCoVVzj6cvP8xyuOQYUoANFMBokAK2w8Y4WChhX0J-3eV_njLB7WQfsVCRfMg2iaSMrStzMgE86vyH_aJwqhFLAtmhKOm8pWMoSCozMEyNoTBPwsoenGBHcIxRsBoReklxyVh5z6Fe4xGJCyAfchle7sSUaMwn6iZw7_JM7VRtfXJkgJpluSKkNRcrhaRD0MgWxkGMa9VXeKIRuVPOtuB3NyXB_MxpgQBRnSWnFEkZliy5-IFeSQhSGwhLxJZT2pdVCSchqFfA1xhGFJOQ_aM5wAMym7mH6lKb76ZpInhfbfOdeYUrFJENJhOxJCu-BoxL5bGIb-Ri6iq3T8yRz1dT6TWJMgRgj6ICP0Z6VjFSNqCFijYkxZqFDoxuOXYJR0BGpoXM2uIOYGlxkRdP1mIti3t61zg7BFyFWrgNDeMncncu9Ii-DyEtVFKVkXRSubEvA7ag4zez_MJFisAN-8ljsjms2Uxa0pEqYbtr1Ngl3uezI3nIy2QD4jAfHbyAwMsMWUqoGjVF4hCqOjg64dONuorE5SQTvgKwakwwOOWLfUGBHFNHR0Ej7shac4ybO4yJoPCGhQxeaFuBVYI8MzMYvWaKYBU1whMXirCRX5LGyLVaNfaWJCgFlBYrt2tBFygYM8aj_ugNmWkqC_HO9HPH3gZVr4XE8FY3i-le4tmFVHe2mMYQlUw0_VrKXmGCnmzP7NaP8iwjlmVc9Da6zhOO0BJMjXNYZlROSBTPgDcHs0nMwTy4tgrEZHKnwCBFz0QXYubCyRC6PToCCUkplFGDRXx8JXdnG2I_L9i1CbE83do9pAhnZxvBJxEmejlYqfws4lw48XonUHOB7SQSbuWHdWafa0vJegJdnBtjfeO3QfWiEYubx1qn89W0hFuzKWhs-dEU2OxW1uUzu-mFEuW8Ioy48Khb0wszq-CzNVFLq7SgQwyEmESc9gBt6pSvzuuNG0afpwMkqhy0V5emybO3o5xLOgKucpzHgqOFzMYEQCKF4TgLcvyqEyyqJquctIJxpUWmwKwazQleprCqGoVhs6ySHNqwRjwrD9IsUSpzyahZ8glQE3wp-OsVXou_AEM4Z8ZAyCdjMBQBXZR11BO5YBnOa0WnUHWCIIBeT5aB2LZTzhZhZyFPVQMajWwVpWAj6Hc0f-sSqYBghcSSUqsqJ5yX2eF7RggVTaBF61AklcJpSXUe36Q2SeijoTHDZmfLfFdgsEcRdisoijbIYOoGFJenLmCGa4GpH5IxX8vBggVQO0-mwfCQOc6VIBsVwwOUjBPWK-_4KJGt6s7aWM0ycs4" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": { "serverName": "www.microsoft.com", "fingerprint": "chrome", "publicKey": "k0A9n6nHl0ZiOetEFaWw2MQF-MtvzebHRea1DU2oy0I", "shortId": "8855461f" },
+        "xhttpSettings": { "path": "/N9BsMUaP", "mode": "auto" }
+      }
+    }
+  ,
+  { "tag": "direct", "protocol": "freedom" },
+  { "tag": "block",  "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "outboundTag": "block",  "ip":     ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "outboundTag": "proxy",  "port":   "0-65535" }
+    ]
+  }
+}
+
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": {
+      "dns.google": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"],
+      "dns.alidns.com": ["223.5.5.5", "223.6.6.6", "2400:3200::1", "2400:3200:baba::1"],
+      "one.one.one.one": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"],
+      "1dot1dot1dot1.cloudflare-dns.com": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"],
+      "cloudflare-dns.com": ["104.16.249.249", "104.16.248.249", "2606:4700::6810:f8f9", "2606:4700::6810:f9f9"],
+      "dns.cloudflare.com": ["104.16.132.229", "104.16.133.229", "2606:4700::6810:84e5", "2606:4700::6810:85e5"],
+      "dot.pub": ["1.12.12.12", "120.53.53.53"],
+      "doh.pub": ["1.12.12.12", "120.53.53.53"],
+      "dns.quad9.net": ["9.9.9.9", "149.112.112.112", "2620:fe::fe", "2620:fe::9"],
+      "dns.yandex.net": ["77.88.8.8", "77.88.8.1", "2a02:6b8::feed:0ff", "2a02:6b8:0:1::feed:0ff"],
+      "dns.sb": ["185.222.222.222", "2a09::"],
+      "dns.umbrella.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"],
+      "dns.sse.cisco.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"],
+      "engage.cloudflareclient.com": ["162.159.192.1", "2606:4700:d0::a29f:c001"]
+    },
+    "servers": [
+      { "address": "https://dns.alidns.com/dns-query", "domains": ["geosite:private"], "skipFallback": true },
+      { "address": "223.5.5.5", "domains": ["full:dns.alidns.com", "full:cloudflare-dns.com"], "skipFallback": true },
+      "https://cloudflare-dns.com/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks", "port": 1080, "listen": "127.0.0.1", "protocol": "mixed",
+      "sniffing": { "enabled": true, "destOverride": ["http", "tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true, "allowTransparent": false }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy", "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "89.144.35.230", "port": 54582,
+            "users": [
+              {
+                "id": "5cfc52bc-e701-4160-89df-930a0c040576",
+                "email": "t@t.tt",
+                "security": "auto",
+                "encryption": "mlkem768x25519plus.native.0rtt.0Rs8kQdBBMcc2SywqxkhzNVVzyIt_OZaYDNplvTPJKOwxAumLyogdAmy-lLJdlpIerxoMMZs2dlOCoI2H_igvKVg-1lc8Pge2EY-eki2tMPCzEhec7hFnVoDRydhygEXaAaebBpipjMntKVHqLJzwKomw5d-O0kAGaiF5nYPi-SU3NEBAXUPEWi9nMZeOEYPzzthXAcIVWw7yDlrGrOJQSVRyNmcUppT9hAwoNMPe2O5z0IN3rOdd7c3soKJ8oU6gwY38ynGbMEXGQqIBRWeYPYaptddWUZP28tus9xTwKQkIfeWWjsGOZcqGJMRRPevlIxRbfcAAJuCeTiz4yErDFsoMBYdzQl3BzIIcimWDEQIXZJCR6yyLSyJj8Fva7AgcAeg5BZs6_ZQdQFZfZpwjrwmp1kbdakCf-AzR9zBrOtR35IElzgBsgavbgZVY4B1THZ7DvFQVAq3hupm6_gaAaxg42qsleKyzPEs00VY-8DLRjauukNzTigjhfqom8liJnp8aALEnXhu7rdPIWuM91WEz4uTmbxBvARzuUAe7LceQtqiaHmebrp8N0mOKsSyh2PDVAmbWtjHCXJeDhhCMPUYXuiwUVICeUZV1TZxjmZ_xFFL8JZ8vAtewzs9AkiLXJaHNdIBbQRW5qx5BQfMM5vKjYhiXCxJugxu0zq57ksRxsF68oSW0jWbHXaF9EY91ABSZystAjitddC6QcGOUtqn6giKSVs2RXwEeNqZEsEELahYcPtM_PmTlXG-3pFfXalmcpC6bcVl14JLgkykbEtDy3qhBNaUa4osqDu4g8EgRVVuJlCFEcOW-qsQZedzkuhXa2UrUSgNBfVMYXCq16iiD6WKyVVww8CKj_WsPlyNrKIdu8RKENo_HZHN5gPEkgIGWvdpUVyJVbMHlGQ8wVKFDMgn3TyCmCx2_dXM0_eQDqjI3mXAonbAoFttwDhfbpcK4FjPWSkHZrMfAQU1QeodFxqBvBe8MMw1bLSu_mE8beORjEpmtWFr08O0zeUqBkKdOBwahQnB7mBx17JnjYSH0KZT2KF29SiBudHKz7mbThIxhglQH1hSfmSWs0k_d1uCR9Qvylsns9a3j4uwcvUFtZam7iVk2HxG-vMOihIYYomSALwNU0IN01Z3qddbW5uDdtIE0yA2fVVOxjMKVMeYybtarviaCdfNmvyJ4MrJUzoS82cp6TuOYgMZ8hosGMOH1xTMCZIMc9mf4UCRJqA3cRMH0PFj_ugQ62ohDld1dyZADdQx2igtUoYnjLKcIHVdTOp36TqaofugLKwF_aJSUmhi_Kheaju28kZskBaebUqT9VPBqcqYozdvXeeG8hUT6eiMAKSML4jHIJeYOpjOHhYNUEm9b4ATJOwstyQgQmE-P3teIQeYYRcimLpjCTczISEQJcUg68e3CgA8GCoLIaZVsmYKDMxbPJu7bWygU5bBH0Gc6sqf7uNy3kI0nEtAGNAUs6y9TFROQ2BgNeSMucRVNXZ1ePpJs8mx_xRn2ODAn0hImPlLiuOHniCPE_zni6TSyL8Typ11OvyVBIrIrAxWZwREOPs5lXV17t8",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp", "security": "reality",
+        "xhttpSettings": { "path": "5cfc52bc-e701-4160-89df-930a0c040576-xh", "mode": "auto" },
+        "realitySettings": {
+          "serverName": "apple.com", "fingerprint": "chrome", "show": false,
+          "publicKey": "kfw5DgkyKiovC3dzb-o2PUYnZPnbYvbx2IwERUv9czY",
+          "shortId": "225e2cc8", "spiderX": "", "mldsa65Verify": ""
+        }
+      },
+      "mux": { "enabled": false, "concurrency": -1 }
+    },
+    { "tag": "direct", "protocol": "freedom" },
+    { "tag": "block", "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "port": "443", "network": "udp", "outboundTag": "block" },
+      { "type": "field", "outboundTag": "direct", "ip": ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "port": "0-65535", "outboundTag": "proxy" }
+    ]
+  }
+}
+
+
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": {
+      "dns.google": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"],
+      "dns.alidns.com": ["223.5.5.5", "223.6.6.6", "2400:3200::1", "2400:3200:baba::1"],
+      "one.one.one.one": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"],
+      "1dot1dot1dot1.cloudflare-dns.com": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"],
+      "cloudflare-dns.com": ["104.16.249.249", "104.16.248.249", "2606:4700::6810:f8f9", "2606:4700::6810:f9f9"],
+      "dns.cloudflare.com": ["104.16.132.229", "104.16.133.229", "2606:4700::6810:84e5", "2606:4700::6810:85e5"],
+      "dot.pub": ["1.12.12.12", "120.53.53.53"],
+      "doh.pub": ["1.12.12.12", "120.53.53.53"],
+      "dns.quad9.net": ["9.9.9.9", "149.112.112.112", "2620:fe::fe", "2620:fe::9"],
+      "dns.yandex.net": ["77.88.8.8", "77.88.8.1", "2a02:6b8::feed:0ff", "2a02:6b8:0:1::feed:0ff"],
+      "dns.sb": ["185.222.222.222", "2a09::"],
+      "dns.umbrella.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"],
+      "dns.sse.cisco.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"],
+      "engage.cloudflareclient.com": ["162.159.192.1", "2606:4700:d0::a29f:c001"]
+    },
+    "servers": [
+      { "address": "https://dns.alidns.com/dns-query", "domains": ["geosite:private"], "skipFallback": true },
+      { "address": "223.5.5.5", "domains": ["full:dns.alidns.com", "full:cloudflare-dns.com"], "skipFallback": true },
+      "https://cloudflare-dns.com/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks", "port": 1080, "listen": "127.0.0.1", "protocol": "mixed",
+      "sniffing": { "enabled": true, "destOverride": ["http", "tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true, "allowTransparent": false }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy", "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "89.144.35.230", "port": 54582,
+            "users": [
+              {
+                "id": "5cfc52bc-e701-4160-89df-930a0c040576",
+                "email": "t@t.tt",
+                "security": "auto",
+                "encryption": "mlkem768x25519plus.native.0rtt.0Rs8kQdBBMcc2SywqxkhzNVVzyIt_OZaYDNplvTPJKOwxAumLyogdAmy-lLJdlpIerxoMMZs2dlOCoI2H_igvKVg-1lc8Pge2EY-eki2tMPCzEhec7hFnVoDRydhygEXaAaebBpipjMntKVHqLJzwKomw5d-O0kAGaiF5nYPi-SU3NEBAXUPEWi9nMZeOEYPzzthXAcIVWw7yDlrGrOJQSVRyNmcUppT9hAwoNMPe2O5z0IN3rOdd7c3soKJ8oU6gwY38ynGbMEXGQqIBRWeYPYaptddWUZP28tus9xTwKQkIfeWWjsGOZcqGJMRRPevlIxRbfcAAJuCeTiz4yErDFsoMBYdzQl3BzIIcimWDEQIXZJCR6yyLSyJj8Fva7AgcAeg5BZs6_ZQdQFZfZpwjrwmp1kbdakCf-AzR9zBrOtR35IElzgBsgavbgZVY4B1THZ7DvFQVAq3hupm6_gaAaxg42qsleKyzPEs00VY-8DLRjauukNzTigjhfqom8liJnp8aALEnXhu7rdPIWuM91WEz4uTmbxBvARzuUAe7LceQtqiaHmebrp8N0mOKsSyh2PDVAmbWtjHCXJeDhhCMPUYXuiwUVICeUZV1TZxjmZ_xFFL8JZ8vAtewzs9AkiLXJaHNdIBbQRW5qx5BQfMM5vKjYhiXCxJugxu0zq57ksRxsF68oSW0jWbHXaF9EY91ABSZystAjitddC6QcGOUtqn6giKSVs2RXwEeNqZEsEELahYcPtM_PmTlXG-3pFfXalmcpC6bcVl14JLgkykbEtDy3qhBNaUa4osqDu4g8EgRVVuJlCFEcOW-qsQZedzkuhXa2UrUSgNBfVMYXCq16iiD6WKyVVww8CKj_WsPlyNrKIdu8RKENo_HZHN5gPEkgIGWvdpUVyJVbMHlGQ8wVKFDMgn3TyCmCx2_dXM0_eQDqjI3mXAonbAoFttwDhfbpcK4FjPWSkHZrMfAQU1QeodFxqBvBe8MMw1bLSu_mE8beORjEpmtWFr08O0zeUqBkKdOBwahQnB7mBx17JnjYSH0KZT2KF29SiBudHKz7mbThIxhglQH1hSfmSWs0k_d1uCR9Qvylsns9a3j4uwcvUFtZam7iVk2HxG-vMOihIYYomSALwNU0IN01Z3qddbW5uDdtIE0yA2fVVOxjMKVMeYybtarviaCdfNmvyJ4MrJUzoS82cp6TuOYgMZ8hosGMOH1xTMCZIMc9mf4UCRJqA3cRMH0PFj_ugQ62ohDld1dyZADdQx2igtUoYnjLKcIHVdTOp36TqaofugLKwF_aJSUmhi_Kheaju28kZskBaebUqT9VPBqcqYozdvXeeG8hUT6eiMAKSML4jHIJeYOpjOHhYNUEm9b4ATJOwstyQgQmE-P3teIQeYYRcimLpjCTczISEQJcUg68e3CgA8GCoLIaZVsmYKDMxbPJu7bWygU5bBH0Gc6sqf7uNy3kI0nEtAGNAUs6y9TFROQ2BgNeSMucRVNXZ1ePpJs8mx_xRn2ODAn0hImPlLiuOHniCPE_zni6TSyL8Typ11OvyVBIrIrAxWZwREOPs5lXV17t8",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp", "security": "reality",
+        "xhttpSettings": { "path": "5cfc52bc-e701-4160-89df-930a0c040576-xh", "mode": "auto" },
+        "realitySettings": {
+          "serverName": "apple.com", "fingerprint": "chrome", "show": false,
+          "publicKey": "kfw5DgkyKiovC3dzb-o2PUYnZPnbYvbx2IwERUv9czY",
+          "shortId": "225e2cc8", "spiderX": "", "mldsa65Verify": ""
+        }
+      },
+      "mux": { "enabled": false, "concurrency": -1 }
+    },
+    { "tag": "direct", "protocol": "freedom" },
+    { "tag": "block", "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "port": "443", "network": "udp", "outboundTag": "block" },
+      { "type": "field", "outboundTag": "direct", "ip": ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "port": "0-65535", "outboundTag": "proxy" }
+    ]
+  }
+}
+
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": {
+      "dns.google":                        ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"],
+      "dns.alidns.com":                    ["223.5.5.5","223.6.6.6","2400:3200::1","2400:3200:baba::1"],
+      "one.one.one.one":                   ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "1dot1dot1dot1.cloudflare-dns.com":  ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "cloudflare-dns.com":                ["104.16.249.249","104.16.248.249","2606:4700::6810:f8f9","2606:4700::6810:f9f9"],
+      "dns.cloudflare.com":                ["104.16.132.229","104.16.133.229","2606:4700::6810:84e5","2606:4700::6810:85e5"],
+      "dot.pub":                           ["1.12.12.12","120.53.53.53"],
+      "doh.pub":                           ["1.12.12.12","120.53.53.53"],
+      "dns.quad9.net":                     ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"],
+      "dns.umbrella.com":                  ["208.67.220.220","208.67.222.222","2620:119:35::35","2620:119:53::53"],
+      "engage.cloudflareclient.com":       ["162.159.192.1","2606:4700:d0::a29f:c001"]
+    },
+    "servers": [
+      { "address": "https://dns.alidns.com/dns-query", "domains": ["geosite:private"], "skipFallback": true },
+      { "address": "223.5.5.5", "domains": ["full:dns.alidns.com","full:cloudflare-dns.com"], "skipFallback": true },
+      "https://cloudflare-dns.com/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true }
+    },
+    {
+      "tag": "http",
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth" }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "157.254.223.137",
+          "port": 33323,
+          "users": [{ "id": "0f48492a-adf1-49e6-b73d-dc2888fa68ac", "encryption": "mlkem768x25519plus.native.0rtt.3jNtopeCGaI72AdTrIkExEBKSiKB_LO1BWSVNfdx8EoehKA0TFJFkuIq8uqCb-B2mLFK0aUonhWVtzY7E0Qb3uC0J9oEkFy4fKA0UMNAH5cl4Difj7FrHouiX9yUBrCGy0lhvxtRusufW2VydxFgl9yUsjlPODUm57LMCqOqqGFLsKRqlfLKDNud33gkCCyH76y6yGbIFHGiasZO7fdVkxzDN9BGtxRwa1ueZ4vB7sASYztcOhAl1WlveGQLM_qx7DhdHjGIZBWk20dDCBiCoVVzj6cvP8xyuOQYUoANFMBokAK2w8Y4WChhX0J-3eV_njLB7WQfsVCRfMg2iaSMrStzMgE86vyH_aJwqhFLAtmhKOm8pWMoSCozMEyNoTBPwsoenGBHcIxRsBoReklxyVh5z6Fe4xGJCyAfchle7sSUaMwn6iZw7_JM7VRtfXJkgJpluSKkNRcrhaRD0MgWxkGMa9VXeKIRuVPOtuB3NyXB_MxpgQBRnSWnFEkZliy5-IFeSQhSGwhLxJZT2pdVCSchqFfA1xhGFJOQ_aM5wAMym7mH6lKb76ZpInhfbfOdeYUrFJENJhOxJCu-BoxL5bGIb-Ri6iq3T8yRz1dT6TWJMgRgj6ICP0Z6VjFSNqCFijYkxZqFDoxuOXYJR0BGpoXM2uIOYGlxkRdP1mIti3t61zg7BFyFWrgNDeMncncu9Ii-DyEtVFKVkXRSubEvA7ag4zez_MJFisAN-8ljsjms2Uxa0pEqYbtr1Ngl3uezI3nIy2QD4jAfHbyAwMsMWUqoGjVF4hCqOjg64dONuorE5SQTvgKwakwwOOWLfUGBHFNHR0Ej7shac4ybO4yJoPCGhQxeaFuBVYI8MzMYvWaKYBU1whMXirCRX5LGyLVaNfaWJCgFlBYrt2tBFygYM8aj_ugNmWkqC_HO9HPH3gZVr4XE8FY3i-le4tmFVHe2mMYQlUw0_VrKXmGCnmzP7NaP8iwjlmVc9Da6zhOO0BJMjXNYZlROSBTPgDcHs0nMwTy4tgrEZHKnwCBFz0QXYubCyRC6PToCCUkplFGDRXx8JXdnG2I_L9i1CbE83do9pAhnZxvBJxEmejlYqfws4lw48XonUHOB7SQSbuWHdWafa0vJegJdnBtjfeO3QfWiEYubx1qn89W0hFuzKWhs-dEU2OxW1uUzu-mFEuW8Ioy48Khb0wszq-CzNVFLq7SgQwyEmESc9gBt6pSvzuuNG0afpwMkqhy0V5emybO3o5xLOgKucpzHgqOFzMYEQCKF4TgLcvyqEyyqJquctIJxpUWmwKwazQleprCqGoVhs6ySHNqwRjwrD9IsUSpzyahZ8glQE3wp-OsVXou_AEM4Z8ZAyCdjMBQBXZR11BO5YBnOa0WnUHWCIIBeT5aB2LZTzhZhZyFPVQMajWwVpWAj6Hc0f-sSqYBghcSSUqsqJ5yX2eF7RggVTaBF61AklcJpSXUe36Q2SeijoTHDZmfLfFdgsEcRdisoijbIYOoGFJenLmCGa4GpH5IxX8vBggVQO0-mwfCQOc6VIBsVwwOUjBPWK-_4KJGt6s7aWM0ycs4" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": { "serverName": "www.microsoft.com", "fingerprint": "chrome", "publicKey": "k0A9n6nHl0ZiOetEFaWw2MQF-MtvzebHRea1DU2oy0I", "shortId": "8855461f" },
+        "xhttpSettings": { "path": "/N9BsMUaP", "mode": "auto" }
+      }
+    }
+  ,
+  { "tag": "direct", "protocol": "freedom" },
+  { "tag": "block",  "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "outboundTag": "block",  "ip":     ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "outboundTag": "proxy",  "port":   "0-65535" }
+    ]
+  }
+}
+
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": {
+      "dns.google":                        ["8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844"],
+      "dns.alidns.com":                    ["223.5.5.5","223.6.6.6","2400:3200::1","2400:3200:baba::1"],
+      "one.one.one.one":                   ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "1dot1dot1dot1.cloudflare-dns.com":  ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"],
+      "cloudflare-dns.com":                ["104.16.249.249","104.16.248.249","2606:4700::6810:f8f9","2606:4700::6810:f9f9"],
+      "dns.cloudflare.com":                ["104.16.132.229","104.16.133.229","2606:4700::6810:84e5","2606:4700::6810:85e5"],
+      "dot.pub":                           ["1.12.12.12","120.53.53.53"],
+      "doh.pub":                           ["1.12.12.12","120.53.53.53"],
+      "dns.quad9.net":                     ["9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9"],
+      "dns.umbrella.com":                  ["208.67.220.220","208.67.222.222","2620:119:35::35","2620:119:53::53"],
+      "engage.cloudflareclient.com":       ["162.159.192.1","2606:4700:d0::a29f:c001"]
+    },
+    "servers": [
+      { "address": "https://dns.alidns.com/dns-query", "domains": ["geosite:private"], "skipFallback": true },
+      { "address": "223.5.5.5", "domains": ["full:dns.alidns.com","full:cloudflare-dns.com"], "skipFallback": true },
+      "https://cloudflare-dns.com/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true }
+    },
+    {
+      "tag": "http",
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": { "enabled": true, "destOverride": ["http","tls"], "routeOnly": false },
+      "settings": { "auth": "noauth" }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "157.254.223.137",
+          "port": 33323,
+          "users": [{ "id": "0f48492a-adf1-49e6-b73d-dc2888fa68ac", "encryption": "mlkem768x25519plus.native.0rtt.3jNtopeCGaI72AdTrIkExEBKSiKB_LO1BWSVNfdx8EoehKA0TFJFkuIq8uqCb-B2mLFK0aUonhWVtzY7E0Qb3uC0J9oEkFy4fKA0UMNAH5cl4Difj7FrHouiX9yUBrCGy0lhvxtRusufW2VydxFgl9yUsjlPODUm57LMCqOqqGFLsKRqlfLKDNud33gkCCyH76y6yGbIFHGiasZO7fdVkxzDN9BGtxRwa1ueZ4vB7sASYztcOhAl1WlveGQLM_qx7DhdHjGIZBWk20dDCBiCoVVzj6cvP8xyuOQYUoANFMBokAK2w8Y4WChhX0J-3eV_njLB7WQfsVCRfMg2iaSMrStzMgE86vyH_aJwqhFLAtmhKOm8pWMoSCozMEyNoTBPwsoenGBHcIxRsBoReklxyVh5z6Fe4xGJCyAfchle7sSUaMwn6iZw7_JM7VRtfXJkgJpluSKkNRcrhaRD0MgWxkGMa9VXeKIRuVPOtuB3NyXB_MxpgQBRnSWnFEkZliy5-IFeSQhSGwhLxJZT2pdVCSchqFfA1xhGFJOQ_aM5wAMym7mH6lKb76ZpInhfbfOdeYUrFJENJhOxJCu-BoxL5bGIb-Ri6iq3T8yRz1dT6TWJMgRgj6ICP0Z6VjFSNqCFijYkxZqFDoxuOXYJR0BGpoXM2uIOYGlxkRdP1mIti3t61zg7BFyFWrgNDeMncncu9Ii-DyEtVFKVkXRSubEvA7ag4zez_MJFisAN-8ljsjms2Uxa0pEqYbtr1Ngl3uezI3nIy2QD4jAfHbyAwMsMWUqoGjVF4hCqOjg64dONuorE5SQTvgKwakwwOOWLfUGBHFNHR0Ej7shac4ybO4yJoPCGhQxeaFuBVYI8MzMYvWaKYBU1whMXirCRX5LGyLVaNfaWJCgFlBYrt2tBFygYM8aj_ugNmWkqC_HO9HPH3gZVr4XE8FY3i-le4tmFVHe2mMYQlUw0_VrKXmGCnmzP7NaP8iwjlmVc9Da6zhOO0BJMjXNYZlROSBTPgDcHs0nMwTy4tgrEZHKnwCBFz0QXYubCyRC6PToCCUkplFGDRXx8JXdnG2I_L9i1CbE83do9pAhnZxvBJxEmejlYqfws4lw48XonUHOB7SQSbuWHdWafa0vJegJdnBtjfeO3QfWiEYubx1qn89W0hFuzKWhs-dEU2OxW1uUzu-mFEuW8Ioy48Khb0wszq-CzNVFLq7SgQwyEmESc9gBt6pSvzuuNG0afpwMkqhy0V5emybO3o5xLOgKucpzHgqOFzMYEQCKF4TgLcvyqEyyqJquctIJxpUWmwKwazQleprCqGoVhs6ySHNqwRjwrD9IsUSpzyahZ8glQE3wp-OsVXou_AEM4Z8ZAyCdjMBQBXZR11BO5YBnOa0WnUHWCIIBeT5aB2LZTzhZhZyFPVQMajWwVpWAj6Hc0f-sSqYBghcSSUqsqJ5yX2eF7RggVTaBF61AklcJpSXUe36Q2SeijoTHDZmfLfFdgsEcRdisoijbIYOoGFJenLmCGa4GpH5IxX8vBggVQO0-mwfCQOc6VIBsVwwOUjBPWK-_4KJGt6s7aWM0ycs4" }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": { "serverName": "www.microsoft.com", "fingerprint": "chrome", "publicKey": "k0A9n6nHl0ZiOetEFaWw2MQF-MtvzebHRea1DU2oy0I", "shortId": "8855461f" },
+        "xhttpSettings": { "path": "/N9BsMUaP", "mode": "auto" }
+      }
+    }
+  ,
+  { "tag": "direct", "protocol": "freedom" },
+  { "tag": "block",  "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "outboundTag": "block",  "ip":     ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "outboundTag": "proxy",  "port":   "0-65535" }
+    ]
+  }
+}
+
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": { "dns.google": "8.8.8.8", "proxy.example.com": "127.0.0.1" },
+    "servers": [
+      { "address": "1.1.1.1", "skipFallback": true, "domains": ["domain:googleapis.cn", "domain:gstatic.com"] },
+      { "address": "223.5.5.5", "skipFallback": true, "domains": ["geosite:cn"], "expectIPs": ["geoip:cn"] },
+      "1.1.1.1", "8.8.8.8", "https://dns.google/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks", "port": 1080, "listen": "127.0.0.1", "protocol": "mixed",
+      "sniffing": { "enabled": true, "destOverride": ["http", "tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true, "allowTransparent": false }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy", "protocol": "vless",
+      "settings": { "vnext": [{ "address": "2a14:7584:d097::a", "port": 11330, "users": [{ "id": "53d74aab-6471-4c1b-ace7-fac837d1bfbd", "email": "t@t.tt", "security": "auto", "encryption": "none" }] }] },
+      "streamSettings": {
+        "network": "xhttp", "security": "reality",
+        "xhttpSettings": { "path": "/alvin9999.com" },
+        "realitySettings": { "serverName": "toarumajutsunoindex.fandom.com", "fingerprint": "chrome", "show": false, "publicKey": "3HaD5Ztk3X4gi3aJLVesV6KSJTW2YGG-hvGD3ZumJkE", "shortId": "fa789b2f5ff56959", "spiderX": "/" }
+      },
+      "mux": { "enabled": false, "concurrency": 10  }
+    },
+    { "tag": "direct", "protocol": "freedom" },
+    { "tag": "block", "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "inboundTag": ["api"], "outboundTag": "api" },
+      { "type": "field", "outboundTag": "proxy", "domain": ["domain:googleapis.cn", "domain:gstatic.com"] },
+      { "type": "field", "port": "443", "network": "udp", "outboundTag": "block" },
+      { "type": "field", "outboundTag": "direct", "ip": ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "outboundTag": "direct", "ip": ["223.5.5.5","223.6.6.6","2400:3200::1","2400:3200:baba::1","119.29.29.29","1.12.12.12","120.53.53.53","2402:4e00::","2402:4e00:1::","180.76.76.76","2400:da00::6666","114.114.114.114","114.114.115.115","114.114.114.119","114.114.115.119","114.114.114.110","114.114.115.110","180.184.1.1","180.184.2.2","101.226.4.6","218.30.118.6","123.125.81.6","140.207.198.6","1.2.4.8","210.2.4.8","52.80.66.66","117.50.22.22","2400:7fc0:849e:200::4","2404:c2c0:85d8:901::4","117.50.10.10","52.80.52.52","2400:7fc0:849e:200::8","2404:c2c0:85d8:901::8","117.50.60.30","52.80.60.30"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["domain:alidns.com","domain:doh.pub","domain:dot.pub","domain:360.cn","domain:onedns.net"] },
+      { "type": "field", "outboundTag": "direct", "ip": ["geoip:cn"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:cn"] }
+    ]
+  }
+}
+
+{
+  "log": { "loglevel": "warning" },
+  "dns": {
+    "hosts": { "dns.google": "8.8.8.8", "proxy.example.com": "127.0.0.1" },
+    "servers": [
+      { "address": "1.1.1.1", "skipFallback": true, "domains": ["domain:googleapis.cn", "domain:gstatic.com"] },
+      { "address": "223.5.5.5", "skipFallback": true, "domains": ["geosite:cn"], "expectIPs": ["geoip:cn"] },
+      "1.1.1.1", "8.8.8.8", "https://dns.google/dns-query"
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks", "port": 1080, "listen": "127.0.0.1", "protocol": "mixed",
+      "sniffing": { "enabled": true, "destOverride": ["http", "tls"], "routeOnly": false },
+      "settings": { "auth": "noauth", "udp": true, "allowTransparent": false }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy", "protocol": "vless",
+      "settings": { "vnext": [{ "address": "2a14:7584:d097::a", "port": 11330, "users": [{ "id": "53d74aab-6471-4c1b-ace7-fac837d1bfbd", "email": "t@t.tt", "security": "auto", "encryption": "none" }] }] },
+      "streamSettings": {
+        "network": "xhttp", "security": "reality",
+        "xhttpSettings": { "path": "/alvin9999.com" },
+        "realitySettings": { "serverName": "toarumajutsunoindex.fandom.com", "fingerprint": "chrome", "show": false, "publicKey": "3HaD5Ztk3X4gi3aJLVesV6KSJTW2YGG-hvGD3ZumJkE", "shortId": "fa789b2f5ff56959", "spiderX": "/" }
+      },
+      "mux": { "enabled": false, "concurrency": 10  }
+    },
+    { "tag": "direct", "protocol": "freedom" },
+    { "tag": "block", "protocol": "blackhole" }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      { "type": "field", "inboundTag": ["api"], "outboundTag": "api" },
+      { "type": "field", "outboundTag": "proxy", "domain": ["domain:googleapis.cn", "domain:gstatic.com"] },
+      { "type": "field", "port": "443", "network": "udp", "outboundTag": "block" },
+      { "type": "field", "outboundTag": "direct", "ip": ["geoip:private"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:private"] },
+      { "type": "field", "outboundTag": "direct", "ip": ["223.5.5.5","223.6.6.6","2400:3200::1","2400:3200:baba::1","119.29.29.29","1.12.12.12","120.53.53.53","2402:4e00::","2402:4e00:1::","180.76.76.76","2400:da00::6666","114.114.114.114","114.114.115.115","114.114.114.119","114.114.115.119","114.114.114.110","114.114.115.110","180.184.1.1","180.184.2.2","101.226.4.6","218.30.118.6","123.125.81.6","140.207.198.6","1.2.4.8","210.2.4.8","52.80.66.66","117.50.22.22","2400:7fc0:849e:200::4","2404:c2c0:85d8:901::4","117.50.10.10","52.80.52.52","2400:7fc0:849e:200::8","2404:c2c0:85d8:901::8","117.50.60.30","52.80.60.30"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["domain:alidns.com","domain:doh.pub","domain:dot.pub","domain:360.cn","domain:onedns.net"] },
+      { "type": "field", "outboundTag": "direct", "ip": ["geoip:cn"] },
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:cn"] }
+    ]
+  }
+}
+

@@ -1,0 +1,55 @@
+name: 自动合并订阅文件
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 北京时间每天早上 8 点（UTC 0点）
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 生成最新订阅文件（按内核名分组输出）
+        run: |
+          mkdir -p outputs
+          python merge_sources.py
+          echo "✅ 订阅文件生成完成，输出目录内容："
+          ls -la outputs/
+
+      - name: 配置 Git 并提交更新
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # 添加整个 outputs 目录（包含新增文件、修改文件）
+          git add outputs/
+
+          # 检查是否有实际变更（新增文件或内容修改都会被检测到）
+          if git diff --staged --quiet; then
+            echo "📭 outputs/ 目录无任何变化（内容和文件均未更新），跳过提交"
+          else
+            echo "📤 检测到 outputs/ 目录有更新（新增或修改文件），正在提交..."
+            
+            # 提交变更
+            git commit -m "🔄 自动更新订阅文件 $(date '+%Y-%m-%d %H:%M:%S')"
+
+            # 拉取远程最新代码并 rebase（防止冲突）
+            git pull --rebase origin main || echo "⚠️ Pull 出现警告，继续尝试推送"
+
+            # 推送（使用 force-with-lease 更安全）
+            git push --force-with-lease origin main
+          fi
