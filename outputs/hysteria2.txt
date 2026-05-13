@@ -5,14 +5,14 @@
 # =======================
 
 {
-  "server": "157.254.223.43:27921,28000-29000",
+  "server": "62.210.10.108:22000",
   "auth": "dongtaiwang.com",
   "bandwidth": {
     "up": "11 mbps",
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "www.bing.com",
+    "sni": "www.microsoft.com",
     "insecure": true
   },
   "quic": {
@@ -33,14 +33,14 @@
 
 
 {
-  "server": "157.254.223.43:27921,28000-29000",
+  "server": "62.210.10.108:22000",
   "auth": "dongtaiwang.com",
   "bandwidth": {
     "up": "11 mbps",
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "www.bing.com",
+    "sni": "www.microsoft.com",
     "insecure": true
   },
   "quic": {
