@@ -251,11 +251,21 @@ def process_clash(data: str):
 def process_json(data: str):
     try:
         content = json.loads(data)
+        
+        # 1. 处理 Hysteria / Hysteria2
         if 'server' in content or 'servers' in content:
             servers = content.get('server') or content.get('servers', [])
             if isinstance(servers, str): servers = [servers]
-            has_hop = any(',' in str(s) and '-' in str(s) for s in servers)
-            typ = "hysteria2" if has_hop or "hysteria2" in str(content).lower() else "hysteria"
+            
+            # 判断逻辑：有 'tls' 字典或包含 'hy2' 关键字则为 hy2
+            is_hy2 = False
+            if "hysteria2" in str(content).lower() or "hy2" in str(content).lower():
+                is_hy2 = True
+            elif isinstance(content.get('tls'), dict):
+                is_hy2 = True
+            
+            typ = "hysteria2" if is_hy2 else "hysteria"
+            
             for i, s in enumerate(servers):
                 if not s: continue
                 server, main_port, ports_range = parse_server_port(s)
@@ -276,6 +286,7 @@ def process_json(data: str):
                     }
                 else:
                     tls = content.get('tls', {})
+                    if not isinstance(tls, dict): tls = {}
                     p = {
                         "name": get_node_name(server, typ, len(extracted_proxies)+1, name_suffix),
                         "type": typ, 
@@ -293,6 +304,7 @@ def process_json(data: str):
                     extracted_proxies.append(p)
                     servers_list.append(fp)
 
+        # 2. 处理 V2Ray/Xray 风格的 outbounds
         outbounds = content.get('outbounds', [])
         if not outbounds and 'config' in content:
             outbounds = content['config'].get('outbounds', [])
@@ -348,6 +360,7 @@ def process_json(data: str):
                     extracted_proxies.append(p)
                     servers_list.append(fp)
 
+        # 3. 处理特定的 NaiveProxy 字符串格式 (重要：不能被 if-else 阻断)
         if 'proxy' in content and isinstance(content['proxy'], str) and content['proxy'].startswith('https://'):
             res = urlparse(content['proxy'])
             p = {
@@ -359,6 +372,7 @@ def process_json(data: str):
             if fp not in servers_list:
                 extracted_proxies.append(p)
                 servers_list.append(fp)
+                
     except Exception as e:
         logger.error(f"JSON 处理异常: {e}")
 
