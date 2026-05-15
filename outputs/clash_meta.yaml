@@ -268,12 +268,3 @@ proxies:
   username: dongtaiwang.com
   password: dongtaiwang.com
   tls: true
-- name: UNK-VLESS-25
-  type: vless
-  server: s28233.cdn.ngenix.net
-  port: 443
-  uuid: c3f112fc-1041-Fade-b85c-5ed478daeeb9
-  network: ws
-  tls: true
-  sni: s28233.cdn.ngenix.net
-  client-fingerprint: chrome
