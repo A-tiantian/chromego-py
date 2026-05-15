@@ -26,7 +26,3 @@ https://www.githubip.xyz/Alvin9999/pac2/master/clash.meta2/3/config.yaml
 
 # naiveproxy
 https://www.githubip.xyz/Alvin9999/PAC/master/naiveproxy/config.json
-
-# telefxs
-https://www.xrayvip.com/free.txt
-
