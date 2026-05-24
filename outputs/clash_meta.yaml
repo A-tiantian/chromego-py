@@ -2,17 +2,17 @@ proxies:
 - name: 🇺🇸 US-Providence-VLESS-1
   type: vless
   server: 157.254.223.137
-  port: 27712
-  uuid: 4d5bdb4d-27c1-4a5d-a1de-e3ef05a8654b
+  port: 16190
+  uuid: 1955f3d9-b395-4437-9fe4-0fc98b9d84c3
   flow: ''
   network: xhttp
   tls: true
   udp: true
-  sni: www.adobe.com
+  sni: one-piece.com
   client-fingerprint: chrome
   reality-opts:
-    public-key: l9SbNq7w52igx7J2yv5Z9JJcV6Q6N4FRHJDNT9bCJlI
-    short-id: adcae570
+    public-key: Xy8tozH6IfnxgrPoeXklWIaKlY3r1pCb2xeIT75fnns
+    short-id: ce8e2a26
 - name: 🇩🇪 DE-VLESS-2
   type: vless
   server: 89.144.35.230
@@ -30,17 +30,17 @@ proxies:
 - name: 🇺🇸 US-Providence-VLESS-3
   type: vless
   server: 157.254.223.137
-  port: 32985
-  uuid: 50ca5bbf-bf9b-4013-bee2-50367aa11218
+  port: 30739
+  uuid: fa86c6b0-85af-4871-9689-37f539a1073e
   flow: ''
   network: xhttp
   tls: true
   udp: true
-  sni: www.adobe.com
+  sni: one-piece.com
   client-fingerprint: chrome
   reality-opts:
-    public-key: z9orcLbpAxiBhv2Vo3Rz-fT3tOBnlHqRwYSBRcmUE18
-    short-id: 061e447b
+    public-key: Xy8tozH6IfnxgrPoeXklWIaKlY3r1pCb2xeIT75fnns
+    short-id: ce8e2a26
 - name: 🌐 UNK-VLESS-4
   type: vless
   server: 2a14:7584:d097::a
