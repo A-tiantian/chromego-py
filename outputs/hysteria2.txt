@@ -117,14 +117,14 @@
 
 
 {
-  "server": "157.254.223.43:27921,28000-29000",
-  "auth": "dongtaiwang.com",
+  "server": "163.172.126.108:41227",
+  "auth": "github.com/Alvin9999-newpac/fanqiang",
   "bandwidth": {
     "up": "11 mbps",
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "www.bing.com",
+    "sni": "www.microsoft.com",
     "insecure": true
   },
   "quic": {
@@ -146,14 +146,14 @@
 
 
 {
-  "server": "157.254.223.43:27921,28000-29000",
-  "auth": "dongtaiwang.com",
+  "server": "163.172.126.108:41227",
+  "auth": "github.com/Alvin9999-newpac/fanqiang",
   "bandwidth": {
     "up": "11 mbps",
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "www.bing.com",
+    "sni": "www.microsoft.com",
     "insecure": true
   },
   "quic": {
