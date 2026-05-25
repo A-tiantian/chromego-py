@@ -1,6 +1,6 @@
-vless://1955f3d9-b395-4437-9fe4-0fc98b9d84c3@157.254.223.137:16190?encryption=none&type=xhttp&security=reality&sni=one-piece.com&pbk=Xy8tozH6IfnxgrPoeXklWIaKlY3r1pCb2xeIT75fnns&sid=ce8e2a26#%F0%9F%87%BA%F0%9F%87%B8%20US-Providence-VLESS-1
+vless://f2d9e117-231c-4946-87d8-2cde2222b85d@62.210.113.151:45641?encryption=none&type=xhttp&security=reality&sni=www.lovelive-anime.jp&pbk=Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo&sid=1ea5bfb5#%F0%9F%87%AB%F0%9F%87%B7%20FR-VLESS-1
 vless://5cfc52bc-e701-4160-89df-930a0c040576@89.144.35.230:54582?encryption=none&type=xhttp&security=reality&sni=apple.com&pbk=kfw5DgkyKiovC3dzb-o2PUYnZPnbYvbx2IwERUv9czY&sid=225e2cc8#%F0%9F%87%A9%F0%9F%87%AA%20DE-VLESS-2
-vless://fa86c6b0-85af-4871-9689-37f539a1073e@157.254.223.137:30739?encryption=none&type=xhttp&security=reality&sni=one-piece.com&pbk=Xy8tozH6IfnxgrPoeXklWIaKlY3r1pCb2xeIT75fnns&sid=ce8e2a26#%F0%9F%87%BA%F0%9F%87%B8%20US-Providence-VLESS-3
+vless://59f7ac8f-4a55-42ac-85b8-b3f96871761f@62.210.113.151:64489?encryption=none&type=xhttp&security=reality&sni=www.lovelive-anime.jp&pbk=Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo&sid=1ea5bfb5#%F0%9F%87%AB%F0%9F%87%B7%20FR-VLESS-3
 vless://53d74aab-6471-4c1b-ace7-fac837d1bfbd@[2a14:7584:d097::a]:11330?encryption=none&type=xhttp&security=reality&sni=toarumajutsunoindex.fandom.com&pbk=3HaD5Ztk3X4gi3aJLVesV6KSJTW2YGG-hvGD3ZumJkE&sid=fa789b2f5ff56959#%F0%9F%8C%90%20UNK-VLESS-4
 hysteria://[2a14:7584:d097::a]:54177?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=apple.com&alpn=h3#%F0%9F%8C%90%20UNK-HYSTERIA-5
 hysteria://62.210.29.98:10066?upmbps=11&downmbps=55&auth=github.com/Alvin9999-newpac/fanqiang&insecure=1&peer=bing.com&alpn=h3#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA-6
@@ -10,7 +10,7 @@ hysteria://5.83.129.153:20088?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecur
 hysteria://5.83.129.90:54177?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=apple.com&alpn=h3#%F0%9F%87%A9%F0%9F%87%AA%20DE-HYSTERIA-10
 hy2://dongtaiwang.com@62.210.10.108:22000?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-11
 hy2://dongtaiwang.com@[2001:bc8:32d7:17b::3]:22000?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-12
-hy2://dongtaiwang.com@157.254.223.43:27921?insecure=1&sni=www.bing.com#%F0%9F%87%BA%F0%9F%87%B8%20US-Providence-HYSTERIA2-13%20%2828000-29000%29
+hy2://github.com/Alvin9999-newpac/fanqiang@163.172.126.108:41227?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-13
 hysteria://fan.193919.xyz:45889?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=fan.193919.xyz&alpn=h3#%F0%9F%8C%90%20UNK-HYSTERIA-14
 hysteria://5.83.129.153:22222?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=bing.com&alpn=h3#%F0%9F%87%A9%F0%9F%87%AA%20DE-HYSTERIA-15
 naive+https://dongtaiwang.com:dongtaiwang.com@fan.193919.xyz:44000#%F0%9F%8C%90%20UNK-NAIVE-16
