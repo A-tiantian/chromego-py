@@ -117,7 +117,7 @@
 
 
 {
-  "server": "163.172.126.108:41227",
+  "server": "62.210.147.2:43115",
   "auth": "github.com/Alvin9999-newpac/fanqiang",
   "bandwidth": {
     "up": "11 mbps",
@@ -145,8 +145,9 @@
 
 
 
+
 {
-  "server": "163.172.126.108:41227",
+  "server": "62.210.147.2:43115",
   "auth": "github.com/Alvin9999-newpac/fanqiang",
   "bandwidth": {
     "up": "11 mbps",
