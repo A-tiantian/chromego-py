@@ -12,7 +12,7 @@ hy2://dongtaiwang.com@62.210.10.108:22000?insecure=1&sni=www.microsoft.com#%F0%9
 hy2://dongtaiwang.com@[2001:bc8:32d7:17b::3]:22000?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-12
 hy2://github.com/Alvin9999-newpac/fanqiang@62.210.147.2:43115?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-13
 hysteria://fan.193919.xyz:45889?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=fan.193919.xyz&alpn=h3#%F0%9F%8C%90%20UNK-HYSTERIA-14
-hysteria://5.83.129.153:22222?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=bing.com&alpn=h3#%F0%9F%87%A9%F0%9F%87%AA%20DE-HYSTERIA-15
+hysteria://juicity.193919.xyz:44204?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=juicity.193919.xyz&alpn=h3#%F0%9F%8C%90%20UNK-HYSTERIA-15
 naive+https://dongtaiwang.com:dongtaiwang.com@fan.193919.xyz:44000#%F0%9F%8C%90%20UNK-NAIVE-16
 naive+https://dongtaiwang.com:dongtaiwang.com@hk.336892.xyz:33550#%F0%9F%8C%90%20UNK-NAIVE-17
 hysteria://5.83.129.143:26691?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=apple.com&alpn=h3#%F0%9F%87%A9%F0%9F%87%AA%20DE-HYSTERIA-18
