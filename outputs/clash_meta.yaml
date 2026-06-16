@@ -137,14 +137,14 @@ proxies:
   - h3
   up: 11
   down: 55
-- name: 🇫🇷 FR-HYSTERIA2-12
+- name: 🌐 UNK-HYSTERIA2-12
   type: hysteria2
-  server: 62.210.10.108
-  port: 22000
+  server: www.838491.xyz
+  port: 13377
   password: dongtaiwang.com
   auth-str: dongtaiwang.com
-  sni: www.microsoft.com
-  skip-cert-verify: true
+  sni: www.838491.xyz
+  skip-cert-verify: false
   alpn:
   - h3
 - name: 🇫🇷 FR-HYSTERIA2-13
