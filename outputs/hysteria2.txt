@@ -5,15 +5,15 @@
 # =======================
 
 {
-  "server": "62.210.10.108:22000",
+  "server": "www.838491.xyz:13377",
   "auth": "dongtaiwang.com",
   "bandwidth": {
     "up": "11 mbps",
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "www.microsoft.com",
-    "insecure": true
+    "sni": "www.838491.xyz",
+    "insecure": false
   },
   "quic": {
     "initStreamReceiveWindow": 16777216,
@@ -33,15 +33,15 @@
 
 
 {
-  "server": "62.210.10.108:22000",
+  "server": "www.838491.xyz:13377",
   "auth": "dongtaiwang.com",
   "bandwidth": {
     "up": "11 mbps",
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "www.microsoft.com",
-    "insecure": true
+    "sni": "www.838491.xyz",
+    "insecure": false
   },
   "quic": {
     "initStreamReceiveWindow": 16777216,
@@ -58,6 +58,7 @@
     }
   }
 }
+
 
 
 {

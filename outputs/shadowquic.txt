@@ -51,7 +51,7 @@ inbound:
 
 outbound:
   type: shadowquic
-  addr: "103.135.102.239:1443"
+  addr: "142.249.37.83:1443"
   username: "dongtaiwang.com"
   password: "dongtaiwang.com"
   server-name: "www.yahoo.com"
@@ -65,14 +65,13 @@ log-level: "info"
 
 
 
-
 inbound:
   type: socks
   bind-addr: "127.0.0.1:4080"
 
 outbound:
   type: shadowquic
-  addr: "103.135.102.239:1443"
+  addr: "142.249.37.83:1443"
   username: "dongtaiwang.com"
   password: "dongtaiwang.com"
   server-name: "www.yahoo.com"
