@@ -181,11 +181,11 @@ proxies:
   down: 55
 - name: 🌐 UNK-HYSTERIA-16
   type: hysteria
-  server: juicity.193919.xyz
-  port: 44204
+  server: 142.249.37.83
+  port: 22222
   password: dongtaiwang.com
   auth-str: dongtaiwang.com
-  sni: juicity.193919.xyz
+  sni: www.bing.com
   skip-cert-verify: true
   alpn:
   - h3
