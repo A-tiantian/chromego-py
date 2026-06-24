@@ -3,7 +3,7 @@ vless://5cfc52bc-e701-4160-89df-930a0c040576@89.144.35.230:54582?encryption=none
 vless://59f7ac8f-4a55-42ac-85b8-b3f96871761f@62.210.113.151:64489?encryption=none&type=xhttp&security=reality&sni=www.lovelive-anime.jp&pbk=Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo&sid=1ea5bfb5#%F0%9F%87%AB%F0%9F%87%B7%20FR-VLESS-3
 vless://53d74aab-6471-4c1b-ace7-fac837d1bfbd@[2a14:7584:d097::a]:11330?encryption=none&type=xhttp&security=reality&sni=toarumajutsunoindex.fandom.com&pbk=3HaD5Ztk3X4gi3aJLVesV6KSJTW2YGG-hvGD3ZumJkE&sid=fa789b2f5ff56959#%F0%9F%8C%90%20UNK-VLESS-4
 hysteria://[2a14:7584:d097::a]:54177?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=apple.com&alpn=h3#%F0%9F%8C%90%20UNK-HYSTERIA-5
-hy2://github.com/Alvin9999-newpac/fanqiang@62.210.124.132:64772?insecure=1&sni=bing.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-6
+hy2://github.com/Alvin9999-newpac/fanqiang@clash-ip1.934618.xyz:18271?insecure=0&sni=clash-ip1.934618.xyz#%F0%9F%8C%90%20UNK-HYSTERIA2-6
 tuic://36106e0f-4d9a-470b-a3fd-535f3b7a1e92:dongtaiwang.com@5.178.101.117:30006?sni=www.microsoft.com&alpn=h3&allow_insecure=1&congestion_control=bbr&udp_relay_mode=native#%F0%9F%87%AB%F0%9F%87%B7%20FR-TUIC-7
 hysteria://163.172.117.163:36699?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=bing.com&alpn=h3#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA-8
 hysteria://5.83.129.153:20088?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=apple.com&alpn=h3#%F0%9F%87%A9%F0%9F%87%AA%20DE-HYSTERIA-9
