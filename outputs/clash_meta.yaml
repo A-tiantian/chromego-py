@@ -63,7 +63,7 @@ proxies:
   down: 55
 - name: 🇫🇷 FR-HYSTERIA2-6
   type: hysteria2
-  server: 62.210.27.216
+  server: 62.210.7.139
   port: 60111
   password: github.com/Alvin9999-newpac/fanqiang
   auth-str: github.com/Alvin9999-newpac/fanqiang

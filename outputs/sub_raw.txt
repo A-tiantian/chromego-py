@@ -3,7 +3,7 @@ hysteria://[2a14:7584:d097::a]:54177?upmbps=11&downmbps=55&auth=dongtaiwang.com&
 hysteria://62.210.70.191:23556?upmbps=11&downmbps=55&auth=github.com/Alvin9999-newpac/fanqiang&insecure=1&peer=bing.com&alpn=h3#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA-3
 hysteria://163.172.117.163:36699?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=bing.com&alpn=h3#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA-4
 hysteria://5.83.129.90:54177?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=apple.com&alpn=h3#%F0%9F%87%A9%F0%9F%87%AA%20DE-HYSTERIA-5
-hy2://github.com/Alvin9999-newpac/fanqiang@62.210.27.216:60111?insecure=1&sni=bing.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-6
+hy2://github.com/Alvin9999-newpac/fanqiang@62.210.7.139:60111?insecure=1&sni=bing.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-6
 hy2://dongtaiwang.com@[2001:bc8:32d7:17b::3]:22000?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-7
 hy2://github.com/Alvin9999-newpac/fanqiang@62.210.147.2:43115?insecure=1&sni=www.microsoft.com#%F0%9F%87%AB%F0%9F%87%B7%20FR-HYSTERIA2-8
 hysteria://fan.193919.xyz:45889?upmbps=11&downmbps=55&auth=dongtaiwang.com&insecure=1&peer=fan.193919.xyz&alpn=h3#%F0%9F%8C%90%20UNK-HYSTERIA-9
