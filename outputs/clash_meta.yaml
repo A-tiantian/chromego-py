@@ -13,7 +13,21 @@ proxies:
   reality-opts:
     public-key: tQeEamJmYVUUfjRLX7ETvMnPj4DrHzRhR5TI684oYgg
     short-id: 21569dd6
-- name: 🌐 UNK-HYSTERIA-2
+- name: 🇫🇷 FR-VLESS-2
+  type: vless
+  server: 2001:bc8:32d7:302::14
+  port: 37783
+  uuid: a289c660-1b12-432b-a06c-c2ae469272b0
+  flow: ''
+  network: xhttp
+  tls: true
+  udp: true
+  sni: www.yahoo.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: tQeEamJmYVUUfjRLX7ETvMnPj4DrHzRhR5TI684oYgg
+    short-id: 21569dd6
+- name: 🌐 UNK-HYSTERIA-3
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -25,7 +39,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷 FR-HYSTERIA-3
+- name: 🇫🇷 FR-HYSTERIA-4
   type: hysteria
   server: 62.210.70.191
   port: 23556
@@ -37,7 +51,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷 FR-HYSTERIA-4
+- name: 🇫🇷 FR-HYSTERIA-5
   type: hysteria
   server: 163.172.117.163
   port: 36699
@@ -49,7 +63,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇩🇪 DE-HYSTERIA-5
+- name: 🇩🇪 DE-HYSTERIA-6
   type: hysteria
   server: 5.83.129.90
   port: 54177
@@ -61,7 +75,7 @@ proxies:
   - h3
   up: 11
   down: 55
-- name: 🇫🇷 FR-HYSTERIA2-6
+- name: 🇫🇷 FR-HYSTERIA2-7
   type: hysteria2
   server: 62.210.7.139
   port: 60111
@@ -71,7 +85,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: 🇫🇷 FR-HYSTERIA2-7
+- name: 🇫🇷 FR-HYSTERIA2-8
   type: hysteria2
   server: 2001:bc8:32d7:17b::3
   port: 22000
@@ -81,7 +95,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: 🇫🇷 FR-HYSTERIA2-8
+- name: 🇫🇷 FR-HYSTERIA2-9
   type: hysteria2
   server: 62.210.147.2
   port: 43115
@@ -91,7 +105,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: 🌐 UNK-HYSTERIA-9
+- name: 🌐 UNK-HYSTERIA-10
   type: hysteria
   server: fan.193919.xyz
   port: 45889
@@ -103,7 +117,7 @@ proxies:
   - h3
   up: 11
   down: 55
-- name: 🌐 UNK-HYSTERIA-10
+- name: 🌐 UNK-HYSTERIA-11
   type: hysteria
   server: 142.249.37.83
   port: 22222
@@ -115,21 +129,21 @@ proxies:
   - h3
   up: 11
   down: 55
-- name: 🌐 UNK-NAIVE-11
+- name: 🌐 UNK-NAIVE-12
   type: http
   server: fan.193919.xyz
   port: 44000
   username: dongtaiwang.com
   password: dongtaiwang.com
   tls: true
-- name: 🌐 UNK-NAIVE-12
+- name: 🌐 UNK-NAIVE-13
   type: http
   server: hk.336892.xyz
   port: 33550
   username: dongtaiwang.com
   password: dongtaiwang.com
   tls: true
-- name: 🇩🇪 DE-HYSTERIA-13
+- name: 🇩🇪 DE-HYSTERIA-14
   type: hysteria
   server: 5.83.129.143
   port: 26691
@@ -141,7 +155,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🌐 UNK-HYSTERIA-14
+- name: 🌐 UNK-HYSTERIA-15
   type: hysteria
   server: 2a14:7584:d099::a
   port: 26691
@@ -153,7 +167,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷 FR-TUIC-15
+- name: 🇫🇷 FR-TUIC-16
   type: tuic
   server: 163.172.118.224
   port: 443
@@ -162,7 +176,7 @@ proxies:
   sni: ''
   alpn:
   - h3
-- name: 🇩🇪 DE-TUIC-16
+- name: 🇩🇪 DE-TUIC-17
   type: tuic
   server: 89.144.35.232
   port: 443
@@ -171,7 +185,7 @@ proxies:
   sni: ''
   alpn:
   - h3
-- name: 🇫🇷 FR-HYSTERIA-17
+- name: 🇫🇷 FR-HYSTERIA-18
   type: hysteria
   server: 2001:bc8:32d7:17b::2
   port: 11000
@@ -183,7 +197,7 @@ proxies:
   - h3
   up: 11
   down: 55
-- name: 🇫🇷 FR-HYSTERIA2-18
+- name: 🇫🇷 FR-HYSTERIA2-19
   type: hysteria2
   server: 2001:bc8:32d7:17b::8
   port: 22000
@@ -193,7 +207,7 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: 🇫🇷 FR-VLESS-19
+- name: 🇫🇷 FR-VLESS-20
   type: vless
   server: 2001:bc8:32d7:302::13
   port: 34324
@@ -207,7 +221,7 @@ proxies:
   reality-opts:
     public-key: pHn5CHa2P6-lNBIkTOI3zJQN19jfNFkXxGFuyefpP0M
     short-id: ''
-- name: 🇫🇷 FR-TUIC-20
+- name: 🇫🇷 FR-TUIC-21
   server: 2001:bc8:32d7:302::16
   port: 34997
   type: tuic
@@ -220,7 +234,7 @@ proxies:
   reduce-rtt: true
   udp-relay-mode: native
   congestion-controller: bbr
-- name: 🌐 UNK-NAIVE-21
+- name: 🌐 UNK-NAIVE-22
   type: http
   server: naive1.336892.xyz
   port: 22338
