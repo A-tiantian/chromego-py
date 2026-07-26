@@ -27,7 +27,7 @@
     {
       "type": "tuic",
       "tag": "https://github.com/Alvin9999-newpac/fanqiang",
-      "server": "163.172.118.224",
+      "server": "195.154.41.99",
       "server_port": 33888,
       "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
       "password": "dongtaiwang.com",
@@ -69,7 +69,7 @@
     {
       "type": "tuic",
       "tag": "https://github.com/Alvin9999-newpac/fanqiang",
-      "server": "163.172.118.224",
+      "server": "195.154.41.99",
       "server_port": 33888,
       "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
       "password": "dongtaiwang.com",
@@ -110,15 +110,15 @@
   "outbounds": [
     {
       "type": "tuic",
-      "tag": "https://github.com/Alvin9999-newpac/fanqian",
-      "server": "89.144.35.232",
-      "server_port": 17306,
-      "uuid": "3ebac90b-6977-47c0-bef5-b2e37554432c",
-      "password": "3ebac90b-6977-47c0-bef5-b2e37554432c",
+      "tag": "https://github.com/Alvin9999-newpac/fanqiang",
+      "server": "195.154.41.99",
+      "server_port": 33888,
+      "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
+      "password": "dongtaiwang.com",
       "congestion_control": "bbr",
       "tls": {
         "enabled": true,
-        "server_name": "www.microsoft.com",
+        "server_name": "bing.com",
         "alpn": ["h3"],
         "insecure": true
       }
@@ -135,7 +135,7 @@
         "action": "sniff"
       }
     ],
-    "final": "https://github.com/Alvin9999-newpac/fanqian"
+    "final": "https://github.com/Alvin9999-newpac/fanqiang"
   }
 }
 
@@ -152,15 +152,15 @@
   "outbounds": [
     {
       "type": "tuic",
-      "tag": "https://github.com/Alvin9999-newpac/fanqian",
-      "server": "89.144.35.232",
-      "server_port": 17306,
-      "uuid": "3ebac90b-6977-47c0-bef5-b2e37554432c",
-      "password": "3ebac90b-6977-47c0-bef5-b2e37554432c",
+      "tag": "https://github.com/Alvin9999-newpac/fanqiang",
+      "server": "195.154.41.99",
+      "server_port": 33888,
+      "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
+      "password": "dongtaiwang.com",
       "congestion_control": "bbr",
       "tls": {
         "enabled": true,
-        "server_name": "www.microsoft.com",
+        "server_name": "bing.com",
         "alpn": ["h3"],
         "insecure": true
       }
@@ -177,7 +177,7 @@
         "action": "sniff"
       }
     ],
-    "final": "https://github.com/Alvin9999-newpac/fanqian"
+    "final": "https://github.com/Alvin9999-newpac/fanqiang"
   }
 }
 
