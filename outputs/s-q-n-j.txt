@@ -14,29 +14,49 @@
 # =======================
 
 {
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "Alvin9999-newpac"
+      },
+      {
+        "tag": "local-dns",
+        "type": "local"
+      }
+    ],
+    "final": "proxy-dns",
+    "strategy": "ipv4_only"
+  },
   "inbounds": [
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "::",
+      "listen": "127.0.0.1",
       "listen_port": 1080,
       "set_system_proxy": false
     }
   ],
   "outbounds": [
     {
-      "type": "tuic",
-      "tag": "https://github.com/Alvin9999-newpac/fanqiang",
-      "server": "195.154.41.99",
-      "server_port": 33888,
-      "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
-      "password": "dongtaiwang.com",
-      "congestion_control": "bbr",
+      "type": "hysteria",
+      "tag": "Alvin9999-newpac",
+      "server": "195.154.44.227",
+      "server_port": 55668,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "auth_str": "github.com/Alvin9999-newpac/fanqiang",
       "tls": {
         "enabled": true,
+        "insecure": true,
         "server_name": "bing.com",
-        "alpn": ["h3"],
-        "insecure": true
+        "alpn": ["h3"]
       }
     },
     {
@@ -49,36 +69,209 @@
       {
         "inbound": "mixed-in",
         "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
       }
     ],
-    "final": "https://github.com/Alvin9999-newpac/fanqiang"
+    "default_domain_resolver": "local-dns",
+    "auto_detect_interface": true,
+    "final": "Alvin9999-newpac"
+  }
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "Alvin9999-newpac"
+      },
+      {
+        "tag": "local-dns",
+        "type": "local"
+      }
+    ],
+    "final": "proxy-dns",
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 1080,
+      "set_system_proxy": false
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "hysteria",
+      "tag": "Alvin9999-newpac",
+      "server": "195.154.44.227",
+      "server_port": 55668,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "auth_str": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "bing.com",
+        "alpn": ["h3"]
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": "mixed-in",
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
+    ],
+    "default_domain_resolver": "local-dns",
+    "auto_detect_interface": true,
+    "final": "Alvin9999-newpac"
+  }
+}
+
+
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "Alvin9999-newpac"
+      },
+      {
+        "tag": "local-dns",
+        "type": "local"
+      }
+    ],
+    "final": "proxy-dns",
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 1080,
+      "set_system_proxy": false
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "hysteria",
+      "tag": "Alvin9999-newpac",
+      "server": "195.154.44.227",
+      "server_port": 55668,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "auth_str": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "bing.com",
+        "alpn": ["h3"]
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": "mixed-in",
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
+    ],
+    "default_domain_resolver": "local-dns",
+    "auto_detect_interface": true,
+    "final": "Alvin9999-newpac"
   }
 }
 
 {
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "Alvin9999-newpac"
+      },
+      {
+        "tag": "local-dns",
+        "type": "local"
+      }
+    ],
+    "final": "proxy-dns",
+    "strategy": "ipv4_only"
+  },
   "inbounds": [
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "::",
+      "listen": "127.0.0.1",
       "listen_port": 1080,
       "set_system_proxy": false
     }
   ],
   "outbounds": [
     {
-      "type": "tuic",
-      "tag": "https://github.com/Alvin9999-newpac/fanqiang",
-      "server": "195.154.41.99",
-      "server_port": 33888,
-      "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
-      "password": "dongtaiwang.com",
-      "congestion_control": "bbr",
+      "type": "hysteria",
+      "tag": "Alvin9999-newpac",
+      "server": "195.154.44.227",
+      "server_port": 55668,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "auth_str": "github.com/Alvin9999-newpac/fanqiang",
       "tls": {
         "enabled": true,
+        "insecure": true,
         "server_name": "bing.com",
-        "alpn": ["h3"],
-        "insecure": true
+        "alpn": ["h3"]
       }
     },
     {
@@ -91,78 +284,137 @@
       {
         "inbound": "mixed-in",
         "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
       }
     ],
-    "final": "https://github.com/Alvin9999-newpac/fanqiang"
+    "default_domain_resolver": "local-dns",
+    "auto_detect_interface": true,
+    "final": "Alvin9999-newpac"
+  }
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "Alvin9999-newpac"
+      },
+      {
+        "tag": "local-dns",
+        "type": "local"
+      }
+    ],
+    "final": "proxy-dns",
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 1080,
+      "set_system_proxy": false
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "hysteria",
+      "tag": "Alvin9999-newpac",
+      "server": "195.154.44.227",
+      "server_port": 55668,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "auth_str": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "bing.com",
+        "alpn": ["h3"]
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": "mixed-in",
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
+    ],
+    "default_domain_resolver": "local-dns",
+    "auto_detect_interface": true,
+    "final": "Alvin9999-newpac"
   }
 }
 
-{
-  "inbounds": [
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "::",
-      "listen_port": 1080,
-      "set_system_proxy": false
-    }
-  ],
-  "outbounds": [
-    {
-      "type": "tuic",
-      "tag": "https://github.com/Alvin9999-newpac/fanqiang",
-      "server": "195.154.41.99",
-      "server_port": 33888,
-      "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
-      "password": "dongtaiwang.com",
-      "congestion_control": "bbr",
-      "tls": {
-        "enabled": true,
-        "server_name": "bing.com",
-        "alpn": ["h3"],
-        "insecure": true
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    }
-  ],
-  "route": {
-    "rules": [
-      {
-        "inbound": "mixed-in",
-        "action": "sniff"
-      }
-    ],
-    "final": "https://github.com/Alvin9999-newpac/fanqiang"
-  }
-}
 
 {
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "Alvin9999-newpac"
+      },
+      {
+        "tag": "local-dns",
+        "type": "local"
+      }
+    ],
+    "final": "proxy-dns",
+    "strategy": "ipv4_only"
+  },
   "inbounds": [
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "::",
+      "listen": "127.0.0.1",
       "listen_port": 1080,
       "set_system_proxy": false
     }
   ],
   "outbounds": [
     {
-      "type": "tuic",
-      "tag": "https://github.com/Alvin9999-newpac/fanqiang",
-      "server": "195.154.41.99",
-      "server_port": 33888,
-      "uuid": "9adb384a-0f16-4501-a8f3-b6b2556fce87",
-      "password": "dongtaiwang.com",
-      "congestion_control": "bbr",
+      "type": "hysteria",
+      "tag": "Alvin9999-newpac",
+      "server": "195.154.44.227",
+      "server_port": 55668,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "auth_str": "github.com/Alvin9999-newpac/fanqiang",
       "tls": {
         "enabled": true,
+        "insecure": true,
         "server_name": "bing.com",
-        "alpn": ["h3"],
-        "insecure": true
+        "alpn": ["h3"]
       }
     },
     {
@@ -175,9 +427,19 @@
       {
         "inbound": "mixed-in",
         "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
       }
     ],
-    "final": "https://github.com/Alvin9999-newpac/fanqiang"
+    "default_domain_resolver": "local-dns",
+    "auto_detect_interface": true,
+    "final": "Alvin9999-newpac"
   }
 }
 
