@@ -6,22 +6,20 @@
 
 {
   "listen": "127.0.0.1:1080",
-    "server": "fan.193919.xyz:45889",
-    "uuid": "abbf6900-2bfb-4019-89e4-4875e831cea8",
-    "password": "dongtaiwang.com",
+    "server": "fan.193919.xyz:22001",
+    "uuid": "b5ed1193-4ae4-25a1-9a91-15bfc5dc728c",
+    "password": "github.com/Alvin9999-newpac/fanqiang",
     "sni": "fan.193919.xyz",
     "allow_insecure": true,
     "congestion_control": "bbr",
     "log_level": "info"
 }
 
-
-
 {
   "listen": "127.0.0.1:1080",
-    "server": "fan.193919.xyz:45889",
-    "uuid": "abbf6900-2bfb-4019-89e4-4875e831cea8",
-    "password": "dongtaiwang.com",
+    "server": "fan.193919.xyz:22001",
+    "uuid": "b5ed1193-4ae4-25a1-9a91-15bfc5dc728c",
+    "password": "github.com/Alvin9999-newpac/fanqiang",
     "sni": "fan.193919.xyz",
     "allow_insecure": true,
     "congestion_control": "bbr",
