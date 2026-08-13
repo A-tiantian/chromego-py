@@ -15,15 +15,15 @@
 
 - Clash Meta (不带WARP):
   
-  [https://raw.githubusercontent.com/A-tiantian/chromego_py/main/outputs/clash_meta.yaml](https://raw.githubusercontent.com/A-tiantian/chromego_py/main/outputs/clash_meta.yaml)
+  [https://raw.githubusercontent.com/A-tiantian/chromego-py/main/outputs/clash_meta.yaml](https://raw.githubusercontent.com/A-tiantian/chromego-py/main/outputs/clash_meta.yaml)
 
 - Nekobox明文定阅
 
-  [https://raw.githubusercontent.com/A-tiantian/chromego_py/main/outputs/sub_raw.txt](https://raw.githubusercontent.com/A-tiantian/chromego_py/main/outputs/sub_raw.txt)
+  [https://raw.githubusercontent.com/A-tiantian/chromego-py/main/outputs/sub_raw.txt](https://raw.githubusercontent.com/A-tiantian/chromego-py/main/outputs/sub_raw.txt)
 
 - Base64
 
-  [https://raw.githubusercontent.com/A-tiantian/chromego_py/main/outputs/sub_base64.txt](https://raw.githubusercontent.com/A-tiantian/chromego_py/main/outputs/sub_base64.txt)
+  [https://raw.githubusercontent.com/A-tiantian/chromego-py/main/outputs/sub_base64.txt](https://raw.githubusercontent.com/A-tiantian/chromego-py/main/outputs/sub_base64.txt)
 
 
 #### 1. main.py用来提取节点并推送，main.yml自动每天运行。
