@@ -1,7 +1,7 @@
 proxies:
 - name: 🇫🇷 FR-VLESS-1
   type: vless
-  server: 62.210.70.194
+  server: 2001:bc8:32d7:302::14
   port: 37783
   uuid: a289c660-1b12-432b-a06c-c2ae469272b0
   flow: ''
@@ -15,7 +15,7 @@ proxies:
     short-id: 21569dd6
 - name: 🇫🇷 FR-VLESS-2
   type: vless
-  server: 2001:bc8:32d7:302::14
+  server: 62.210.70.194
   port: 37783
   uuid: a289c660-1b12-432b-a06c-c2ae469272b0
   flow: ''
@@ -27,19 +27,7 @@ proxies:
   reality-opts:
     public-key: tQeEamJmYVUUfjRLX7ETvMnPj4DrHzRhR5TI684oYgg
     short-id: 21569dd6
-- name: 🌐 UNK-HYSTERIA-3
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: 🇫🇷 FR-HYSTERIA-4
+- name: 🇫🇷 FR-HYSTERIA-3
   type: hysteria
   server: 62.210.70.191
   port: 23556
@@ -51,12 +39,24 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷 FR-HYSTERIA-5
+- name: 🇫🇷 FR-HYSTERIA-4
   type: hysteria
   server: 163.172.117.163
   port: 36699
   auth-str: dongtaiwang.com
   sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 🌐 UNK-HYSTERIA-5
+  type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
   skip-cert-verify: true
   alpn:
   - h3
@@ -87,18 +87,6 @@ proxies:
   - h3
 - name: 🌐 UNK-HYSTERIA-8
   type: hysteria
-  server: fan.193919.xyz
-  port: 22001
-  password: github.com/Alvin9999-newpac/fanqiang
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  sni: fan.193919.xyz
-  skip-cert-verify: true
-  alpn:
-  - h3
-  up: 11
-  down: 55
-- name: 🌐 UNK-HYSTERIA-9
-  type: hysteria
   server: 142.249.37.83
   port: 22222
   password: dongtaiwang.com
@@ -109,17 +97,29 @@ proxies:
   - h3
   up: 11
   down: 55
+- name: 🌐 UNK-HYSTERIA-9
+  type: hysteria
+  server: fan.193919.xyz
+  port: 22001
+  password: github.com/Alvin9999-newpac/fanqiang
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: fan.193919.xyz
+  skip-cert-verify: true
+  alpn:
+  - h3
+  up: 11
+  down: 55
 - name: 🌐 UNK-NAIVE-10
   type: http
-  server: fan.193919.xyz
-  port: 23001
+  server: hk.336892.xyz
+  port: 33550
   username: dongtaiwang.com
   password: dongtaiwang.com
   tls: true
 - name: 🌐 UNK-NAIVE-11
   type: http
-  server: hk.336892.xyz
-  port: 33550
+  server: fan.193919.xyz
+  port: 23001
   username: dongtaiwang.com
   password: dongtaiwang.com
   tls: true
