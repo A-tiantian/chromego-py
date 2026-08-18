@@ -147,19 +147,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: 🇫🇷 FR-HYSTERIA-14
-  type: hysteria
-  server: 2001:bc8:32d7:17b::2
-  port: 11000
-  password: dongtaiwang.com
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  up: 11
-  down: 55
-- name: 🇫🇷 FR-HYSTERIA2-15
+- name: 🇫🇷 FR-HYSTERIA2-14
   type: hysteria2
   server: 2001:bc8:32d7:17b::8
   port: 22000
@@ -169,21 +157,19 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: 🇫🇷 FR-VLESS-16
-  type: vless
-  server: 2001:bc8:32d7:302::13
-  port: 34324
-  uuid: 26c462ba-a90c-4814-9d7c-a629bc0bdb5c
-  flow: xtls-rprx-vision
-  network: tcp
-  tls: true
-  udp: true
-  sni: dash.cloudflare.com
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: pHn5CHa2P6-lNBIkTOI3zJQN19jfNFkXxGFuyefpP0M
-    short-id: ''
-- name: 🇫🇷 FR-TUIC-17
+- name: 🇫🇷 FR-HYSTERIA-15
+  type: hysteria
+  server: 2001:bc8:32d7:17b::2
+  port: 11000
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 🇫🇷 FR-TUIC-16
   server: 2001:bc8:32d7:302::16
   port: 34997
   type: tuic
@@ -196,10 +182,3 @@ proxies:
   reduce-rtt: true
   udp-relay-mode: native
   congestion-controller: bbr
-- name: 🌐 UNK-NAIVE-18
-  type: http
-  server: naive1.336892.xyz
-  port: 22338
-  username: dongtaiwang.com
-  password: dongtaiwang.com
-  tls: true
