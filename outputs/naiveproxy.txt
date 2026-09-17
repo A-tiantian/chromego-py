@@ -4,11 +4,8 @@
 # 由 merge_sources.py 自动生成
 # =======================
 
+# 【错误】无法访问 https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/naiveproxy/2/config.json：HTTP Error 500: Internal Server Error
 
-{
-  "listen":  "socks://127.0.0.1:1080",
-  "proxy": "https://dongtaiwang.com:dongtaiwang.com@hk.336892.xyz:33550"
-}
 
 
 {
